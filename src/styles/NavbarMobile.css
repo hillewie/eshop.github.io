@@ -1,0 +1,90 @@
+:root {
+    --font-black: rgb(25,25,25);
+}
+
+header {display:none}
+nav {display:none}
+
+@media screen
+and (min-width: 300px)
+and (max-width: 760px) {
+    header {
+        background: rgba(190,190,190,0.5);
+        display: flex;
+        position: fixed;
+        height: 70px;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    #icon-open {
+        cursor: pointer;
+        position: fixed;
+        top: 5px;
+        left: 5px;
+        font-size: clamp(3.5rem, 13vw, 3.5rem);
+    }
+    #icon-close {
+        cursor: pointer;
+        position: fixed;
+        top: 0px;
+        left: 170px;
+        font-size: 6.3rem;
+        color: rgb(255,20,100);
+        animation: iconClose 2s linear;
+    }
+    #login-icon-container {
+        position: fixed;
+        top: 25px;
+        right: 10px;
+        display: flex;
+    }
+    #user-login-icon {
+        font-size: 2rem;
+        color: rgb(95,125,255);
+    }
+    a {
+        color: rgb(25,25,25);
+        cursor: pointer;
+        text-decoration: none;
+        align-self: "center";
+        margin: 0 5px;
+    }
+    
+    #navbar-mobile-wrap-container {
+        display: flex;
+        box-shadow: 1px 0 3px rgb(45,45,45);
+        background: linear-gradient(30deg,  rgb(120,185,80), white, white);
+        position: fixed;
+        width: 170px;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        animation: navbarMobile 0.5s linear;
+    }
+    #navbar-mobile-wrap-inner-container {
+        padding: 0;
+        margin: 50px 30px 0 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar-li-mobile-list {
+        list-style: none;
+        margin: 20px 0 20px 0;
+        padding: 0;
+    }
+    .navbar-a-href-links {
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+    @keyframes iconClose {
+        from {
+            opacity: 0;
+        }
+    }
+    @keyframes navbarMobile {
+        from {
+            left: -300px;
+        }
+    }
+}
