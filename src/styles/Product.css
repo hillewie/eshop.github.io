@@ -1,0 +1,32 @@
+.container-products {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card-product {
+    border: solid 1px rgb(165, 161, 161);
+    box-shadow: 0 2px 3px rgb(35,35,35);
+    margin: 20px;
+    width: 20%;
+}
+
+.card-product-image {
+    width: auto;
+}
+
+.card-product-content{
+    line-height: 170%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.card-product-btn {
+    width: 150px;
+    height: 25px;
+    background-color: #56926E;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    
+}

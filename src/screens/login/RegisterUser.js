@@ -6,7 +6,6 @@ import LoginPart from './LoginPart'
 // API URL
 const { REACT_APP_API_URL_REGISTER } = process.env
 const { REACT_APP_API_URL_USERS } = process.env
-const { REACT_APP_API_URL_ONLINE } = process.env
 
 function WarningMessageInputField( props ) {
     return(
@@ -93,6 +92,7 @@ export default function RegisterUser() {
         const requestOptions = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
+            // headers: { "Content-Type": "application/sql" },
             body: JSON.stringify(data)
         }
         fetch(REACT_APP_API_URL_REGISTER, requestOptions)

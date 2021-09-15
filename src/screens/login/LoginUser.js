@@ -5,7 +5,6 @@ import sha256 from "sha256"
 import RegisterPart from './RegisterPart'
 // API URL
 const { REACT_APP_API_URL_USERS } = process.env
-const { REACT_APP_API_URL_ONLINE } = process.env
 
 function WarningMessageInputField( props ) {
     return(
@@ -19,9 +18,13 @@ function WarningMessageInputField( props ) {
 
 export default function LoginUser() {
 
-
+    var [usernameMessage, SetUsernameMessage] = useState("")
+    var [passwordMessage, SetPasswordMessage] = useState("")
+    
     var [apiData, SetApiData] = useState("")
-    var [onlineData, SetOnlineData] = useState("")
+
+    var [usernameCheck, SetUsernameCheck] = useState("")
+    var [passwordCheck, SetPasswordCheck] = useState("")
     
     useEffect(() => {
         async function FetchMyData(url) {
@@ -34,27 +37,19 @@ export default function LoginUser() {
         Myfetch()
     }, [])
     
-    useEffect(() => {
-        async function FetchMyData(url) {
-            return await(await fetch(url)).json()
-        }
-        async function Myfetch() {
-            var status = await FetchMyData(REACT_APP_API_URL_ONLINE)
-            SetOnlineData(status)
-        }
-        Myfetch()
-    }, [])
-
-    console.log(onlineData)
+    var username = []
+    var password = []
     
+    for (let i of apiData) {
+        username.push(i.username)
+        password.push(i.password)
+    }
+
     function IsMyUsernameTrue(e) {
     }
     
     function IsMyPasswordTrue(e) {
     }
-    
-    // function HandleFormSubmit(e) {
-    // }
     
     function HandleFormSubmit(e) {
     }
@@ -73,6 +68,7 @@ export default function LoginUser() {
                                 required
                                 name="username"
                                 type="text"/>
+                            { usernameMessage }
                         </label>
                     </div>
                     <div className="form-section">
@@ -83,6 +79,7 @@ export default function LoginUser() {
                                 required
                                 name="password"
                                 type="password"/>
+                            { passwordMessage }
                         </label>
                     </div>
                     <div className="form-section">
